@@ -60,11 +60,12 @@ const handleEmailSubmit = async (e) => {
       {/* Navigation */}
       <nav className="nav">
         <div className="nav-container">
-        <img src="/logo.jpg" alt="Mokshapatra" className="logo-image" />
-          <button className="login-btn">Login</button>
+          <div className="logo">
+            <img src="/logo.jpg" alt="Mokshapatra" className="logo-image" />
+          </div>
         </div>
       </nav>
-
+      
 {/* Hero Section */}
       <section className="hero">
         {/* Video Background */}
