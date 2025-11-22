@@ -432,63 +432,101 @@ p, span, div {
 }
 
 .founder-story {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 4rem;
-  padding: 2rem;
-  background: var(--bg-light);
-  border-left: 4px solid var(--primary);
-  border-radius: 12px;
+  padding: 0;
+}
+
+.founder-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(45, 27, 105, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(45, 27, 105, 0.1);
+}
+
+.founder-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--secondary);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+  flex-shrink: 0;
+}
+
+.founder-intro {
+  flex: 1;
+  padding-top: 1rem;
+}
+
+.founder-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.founder-title {
+  font-size: 1.125rem;
+  color: var(--text-medium);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.founder-journey {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.journey-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.founder-content {
+  padding: 0 3rem;
 }
 
 .founder-content p {
-  margin-bottom: 1rem;
-  font-size: 1.125rem;
-  line-height: 1.8;
-}
-
-.greeting {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.invitation {
-  font-weight: 600;
-  color: var(--primary);
-  font-size: 1.25rem;
-}
-
-.concept {
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  text-align: center;
-}
-
-.concept-title {
-  font-size: 2rem;
-  font-weight: 700;
   margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.9;
   color: var(--text-dark);
 }
 
-.concept-text {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  line-height: 1.8;
+.founder-content strong {
+  color: var(--primary);
+  font-weight: 600;
 }
 
-.promise {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border-radius: 20px;
-  margin-top: 3rem;
+.founder-highlight {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: var(--primary) !important;
+  padding: 1.5rem;
+  background: rgba(45, 27, 105, 0.05);
+  border-left: 4px solid var(--secondary);
+  border-radius: 8px;
+  margin: 2rem 0 !important;
 }
 
-.promise-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
+.invitation {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: var(--primary) !important;
+  margin-top: 2rem !important;
 }
 
 /* How It Works Section */
