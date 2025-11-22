@@ -828,6 +828,72 @@ p, span, div {
   color: var(--secondary);
 }
 
+/* Subtle Background Patterns for Depth */
+
+/* Pattern for Solution Section */
+.solution {
+  position: relative;
+  overflow: hidden;
+}
+
+.solution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 40px 40px, rgba(45, 27, 105, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.solution > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Pattern for How It Works Section */
+.how-it-works {
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.how-it-works > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Elegant Divider Between Sections */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.2) 50%,
+    transparent 100%
+  );
+  margin: 0 auto;
+  max-width: 600px;
+}
 /* Responsive Design Improvements */
 @media (max-width: 768px) {
   .hero-container {
