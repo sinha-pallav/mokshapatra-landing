@@ -22,7 +22,7 @@ const handleEmailSubmit = async (e) => {
     
     try {
       // Your Google Apps Script URL
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbz6ytYsmQbS_rHPLbR9IdfQ6NELskaAnn-nSEktdE9xAunfIrYJZlrXESI-RY_kV5uG/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyUveB3sNl4dTKKTAppFdKmXII4tE128z6x4pERnhgjjSgafHo1n3K8gVnwUl88KG8n/exec';
       
       // Create URLSearchParams instead of FormData
       const formData = new URLSearchParams();
