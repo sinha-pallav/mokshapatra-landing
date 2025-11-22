@@ -65,7 +65,7 @@ const handleEmailSubmit = async (e) => {
         </div>
       </nav>
 
-   {/* Hero Section */}
+{/* Hero Section */}
       <section className="hero">
         {/* Video Background */}
         <div className="hero-video-background">
@@ -117,7 +117,7 @@ const handleEmailSubmit = async (e) => {
             </div>
           </div>
 
-         <div className="hero-visual">
+          <div className="hero-visual">
             <div className="journey-card">
               <div className="journey-header">
                 <div className="journey-icon">🎲</div>
@@ -172,8 +172,10 @@ const handleEmailSubmit = async (e) => {
               </div>
             </div>
           </div>
-      </section>
-    
+        </div>
+      </section> 
+
+      
       {/* Problem Section */}
       <section className="problem">
         <div className="container">
