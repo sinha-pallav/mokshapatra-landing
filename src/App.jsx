@@ -16,34 +16,39 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleEmailSubmit = async (e) => {
+const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      // Replace YOUR_GOOGLE_APPS_SCRIPT_URL with your actual URL from Google Apps Script
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyEUTlumJhqLa1-2KbWMDy9gJwtc09IQKqFR2cZ2TfawMNAfq-RePY5IAfwaeR0DZ9g/exec';
+      // Your Google Apps Script URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbz6ytYsmQbS_rHPLbR9IdfQ6NELskaAnn-nSEktdE9xAunfIrYJZlrXESI-RY_kV5uG/exec';
       
+      // Create form data
       const formData = new FormData();
       formData.append('email', email);
       
+      // Send to Google Apps Script with no-cors mode
       await fetch(scriptURL, {
         method: 'POST',
         body: formData,
         mode: 'no-cors'
       });
       
+      console.log('Email submitted:', email);
+      
+      // Show success message
       setSubmitStatus('success');
       setEmail('');
+      
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error submitting email:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus(''), 5000);
     }
   };
-
   return (
     <div className="landing-page">
       {/* Navigation */}
