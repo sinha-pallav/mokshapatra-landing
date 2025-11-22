@@ -280,6 +280,8 @@ const handleEmailSubmit = async (e) => {
               </p>
             </div>
           </div>
+      
+      
       {/* How It Works Section */}
       <section id="how-it-works" className="how-it-works">
         <div className="container">
