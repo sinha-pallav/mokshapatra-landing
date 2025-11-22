@@ -65,46 +65,70 @@ const handleEmailSubmit = async (e) => {
         </div>
       </nav>
 
-      {/* Hero Section */}
+     {/* Hero Section */}
       <section className="hero">
         <div className="hero-container">
           <div className="hero-content">
-            <h1 className="hero-title">
-              Stop Guessing What You Need to Heal Today
-            </h1>
-            <p className="hero-subtitle">
-              Roll sacred dice each morning. Receive the exact practice your soul needs. 
-              Track your transformation on a personalized 100-square journey to inner peace.
-            </p>
-            
-            <div className="cta-buttons">
-              <button className="cta-primary" onClick={() => document.getElementById('email-form').scrollIntoView({ behavior: 'smooth' })}>
-                Join the Waitlist
-              </button>
-              <button className="cta-secondary" onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}>
-                Watch How It Works
-              </button>
-            </div>
+            <div className="hero-text">
+              <h1 className="hero-title">
+                Stop Guessing What You Need to Heal Today
+              </h1>
+              <p className="hero-subtitle">
+                Ancient wisdom meets modern AI. Roll sacred dice each morning to receive 
+                the exact spiritual practice your soul needs right now.
+              </p>
+              
+              <div className="cta-buttons">
+                <button 
+                  className="cta-primary" 
+                  onClick={() => document.getElementById('email-form').scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Start Your Journey
+                </button>
+                <button 
+                  className="cta-secondary" 
+                  onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Watch How It Works
+                </button>
+              </div>
 
-            <div className="trust-badge">
-              <Sparkles size={16} className="trust-icon" />
-              <span>Created by Pallav, Certified Energy Healer with 5 Years Personal Practice</span>
+              <div className="trust-badge">
+                <Sparkles size={20} className="trust-icon" />
+                <div className="trust-text">
+                  <strong>Created by Pallav</strong>
+                  <span>Certified Energy Healer • Currently on Square 47/100</span>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="hero-visual">
             <div className="dice-container">
               <div className="dice-glow"></div>
-              <div className="dice">
-                <Dices size={80} className="dice-icon" />
-                <div className="dice-number">{diceRoll}</div>
+              <div className="dice-board">
+                <div className="board-pattern"></div>
+                <div className="dice">
+                  <Dices size={120} className="dice-icon" />
+                </div>
+                <div className="board-squares">
+                  <div className="square"></div>
+                  <div className="square"></div>
+                  <div className="square"></div>
+                  <div className="square active"></div>
+                </div>
               </div>
-              <p className="dice-caption">Roll → Discover → Transform</p>
+              <p className="dice-caption">
+                <span className="caption-step">Roll</span>
+                <span className="caption-arrow">→</span>
+                <span className="caption-step">Discover</span>
+                <span className="caption-arrow">→</span>
+                <span className="caption-step">Transform</span>
+              </p>
             </div>
           </div>
         </div>
       </section>
-
       {/* Problem Section */}
       <section className="problem">
         <div className="container">
