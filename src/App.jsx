@@ -117,18 +117,61 @@ const handleEmailSubmit = async (e) => {
             </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="dice-caption-box">
-              <p className="dice-caption">
-                <span className="caption-step">Roll</span>
-                <span className="caption-arrow">→</span>
-                <span className="caption-step">Discover</span>
-                <span className="caption-arrow">→</span>
-                <span className="caption-step">Transform</span>
-              </p>
+         <div className="hero-visual">
+            <div className="journey-card">
+              <div className="journey-header">
+                <div className="journey-icon">🎲</div>
+                <h3 className="journey-title">Your 100-Day Journey</h3>
+              </div>
+              
+              <div className="journey-steps">
+                <div className="journey-step">
+                  <div className="step-number">1</div>
+                  <div className="step-content">
+                    <div className="step-label">ROLL</div>
+                    <p className="step-desc">Sacred dice each morning</p>
+                  </div>
+                </div>
+                
+                <div className="step-divider">
+                  <div className="divider-line"></div>
+                  <div className="divider-arrow">↓</div>
+                </div>
+                
+                <div className="journey-step">
+                  <div className="step-number">2</div>
+                  <div className="step-content">
+                    <div className="step-label">DISCOVER</div>
+                    <p className="step-desc">Your personalized practice</p>
+                  </div>
+                </div>
+                
+                <div className="step-divider">
+                  <div className="divider-line"></div>
+                  <div className="divider-arrow">↓</div>
+                </div>
+                
+                <div className="journey-step">
+                  <div className="step-number">3</div>
+                  <div className="step-content">
+                    <div className="step-label">TRANSFORM</div>
+                    <p className="step-desc">Track your evolution</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="journey-progress">
+                <div className="progress-squares">
+                  <div className="square active"></div>
+                  <div className="square active"></div>
+                  <div className="square active"></div>
+                  <div className="square"></div>
+                  <div className="square"></div>
+                </div>
+                <p className="progress-text">100 squares to inner peace</p>
+              </div>
             </div>
           </div>
-        </div>
       </section>
     
       {/* Problem Section */}
