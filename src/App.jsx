@@ -129,35 +129,50 @@ const handleEmailSubmit = async (e) => {
           </div>
         </div>
       </section>
+    
       {/* Problem Section */}
       <section className="problem">
         <div className="container">
           <h2 className="section-title">Does This Sound Familiar?</h2>
+          <p className="section-subtitle">
+            You're not alone in these struggles. These are the most common challenges our community faces.
+          </p>
           
           <div className="pain-points">
-            <div className="pain-point">
-              <Check className="check-icon" />
-              <p>You try to meditate but can't maintain consistency</p>
+            <div className="pain-card">
+              <div className="pain-icon">🧘</div>
+              <h3 className="pain-title">Inconsistent Practice</h3>
+              <p className="pain-text">You try to meditate but can't maintain consistency, even when you know it helps.</p>
             </div>
-            <div className="pain-point">
-              <Check className="check-icon" />
-              <p>Spiritual books pile up unread while you scroll social media</p>
+
+            <div className="pain-card">
+              <div className="pain-icon">📚</div>
+              <h3 className="pain-title">Decision Paralysis</h3>
+              <p className="pain-text">Spiritual books pile up unread while you scroll social media, unsure where to start.</p>
             </div>
-            <div className="pain-point">
-              <Check className="check-icon" />
-              <p>You feel lost each morning — which practice do you actually need?</p>
+
+            <div className="pain-card">
+              <div className="pain-icon">🤔</div>
+              <h3 className="pain-title">Daily Confusion</h3>
+              <p className="pain-text">You feel lost each morning — which practice do you actually need right now?</p>
             </div>
-            <div className="pain-point">
-              <Check className="check-icon" />
-              <p>You're healing alone and wish someone truly understood your journey</p>
+
+            <div className="pain-card">
+              <div className="pain-icon">💭</div>
+              <h3 className="pain-title">Healing Alone</h3>
+              <p className="pain-text">You're on this journey by yourself and wish someone truly understood what you're going through.</p>
             </div>
-            <div className="pain-point">
-              <Check className="check-icon" />
-              <p>You can't tell if you're making progress or just spinning your wheels</p>
+
+            <div className="pain-card">
+              <div className="pain-icon">📊</div>
+              <h3 className="pain-title">No Visible Progress</h3>
+              <p className="pain-text">You can't tell if you're making progress or just spinning your wheels.</p>
             </div>
-            <div className="pain-point">
-              <Check className="check-icon" />
-              <p>Generic advice doesn't fit your specific wounds and patterns</p>
+
+            <div className="pain-card">
+              <div className="pain-icon">🎯</div>
+              <h3 className="pain-title">Generic Advice</h3>
+              <p className="pain-text">One-size-fits-all guidance doesn't fit your specific wounds and patterns.</p>
             </div>
           </div>
 
@@ -176,7 +191,6 @@ const handleEmailSubmit = async (e) => {
           </div>
         </div>
       </section>
-
 <div className="founder-story">
             <div className="founder-header">
               <img 
