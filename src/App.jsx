@@ -16,18 +16,21 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
- const handleEmailSubmit = async (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxp9N28Yb1Du0G8Y7qW4pgbcsyH1Prj70UEDxLF9NeNHVZuZ1wPGMhyPPy2fk3h2nvk/exec', {
+      // Replace YOUR_GOOGLE_APPS_SCRIPT_URL with your actual URL from Google Apps Script
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxp9N28Yb1Du0G8Y7qW4pgbcsyH1Prj70UEDxLF9NeNHVZuZ1wPGMhyPPy2fk3h2nvk/exec';
+      
+      const formData = new FormData();
+      formData.append('email', email);
+      
+      await fetch(scriptURL, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `email=${encodeURIComponent(email)}`
+        body: formData,
+        mode: 'no-cors'
       });
       
       setSubmitStatus('success');
@@ -39,18 +42,6 @@ function App() {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus(''), 5000);
     }
-  };    
-    // We'll add Google Sheets integration in next step
-    // For now, just simulate submission
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setIsSubmitting(false);
-      setEmail('');
-      
-      setTimeout(() => {
-        setSubmitStatus('');
-      }, 5000);
-    }, 1000);
   };
 
   return (
@@ -315,6 +306,12 @@ function App() {
             {submitStatus === 'success' && (
               <div className="success-message">
                 ✨ Welcome! Check your email for next steps.
+              </div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <div className="error-message">
+                ❌ Oops! Something went wrong. Please try again.
               </div>
             )}
 
