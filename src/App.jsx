@@ -65,8 +65,22 @@ const handleEmailSubmit = async (e) => {
         </div>
       </nav>
 
-     {/* Hero Section */}
+   {/* Hero Section */}
       <section className="hero">
+        {/* Video Background */}
+        <div className="hero-video-background">
+          <video 
+            className="hero-bg-video"
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+          >
+            <source src="/hero-animation.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-overlay"></div>
+        </div>
+
         <div className="hero-container">
           <div className="hero-content">
             <div className="hero-text">
@@ -102,20 +116,9 @@ const handleEmailSubmit = async (e) => {
               </div>
             </div>
           </div>
-       
-          
+
           <div className="hero-visual">
-            <div className="dice-container">
-              <div className="dice-glow"></div>
-              <video 
-                className="hero-video"
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-              >
-                <source src="/hero-animation.mp4" type="video/mp4" />
-              </video>
+            <div className="dice-caption-box">
               <p className="dice-caption">
                 <span className="caption-step">Roll</span>
                 <span className="caption-arrow">→</span>
