@@ -16,10 +16,30 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleEmailSubmit = async (e) => {
+ const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxp9N28Yb1Du0G8Y7qW4pgbcsyH1Prj70UEDxLF9NeNHVZuZ1wPGMhyPPy2fk3h2nvk/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `email=${encodeURIComponent(email)}`
+      });
+      
+      setSubmitStatus('success');
+      setEmail('');
+    } catch (error) {
+      console.error('Error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(''), 5000);
+    }
+  };    
     // We'll add Google Sheets integration in next step
     // For now, just simulate submission
     setTimeout(() => {
