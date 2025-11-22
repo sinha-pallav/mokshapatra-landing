@@ -635,6 +635,11 @@ p, span, div {
   padding: 7rem 2rem;
 }
 
+.how-it-works .section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -643,17 +648,7 @@ p, span, div {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.step {
-  background: white;
-  padding: 3rem 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(45, 27, 105, 0.06);
-  text-align: center;
-  transition: all 0.4s ease;
-  border: 2px solid transparent;
-  position: relative;
+  margin-top: 3rem;
 }
 
 .step::before {
