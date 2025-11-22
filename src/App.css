@@ -85,7 +85,10 @@ p, span, div {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
+.logo-img {
+  height: 40px;
+  width: auto;
+}
 .login-btn {
   padding: 0.5rem 1.5rem;
   border: 2px solid var(--primary);
