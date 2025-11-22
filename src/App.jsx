@@ -22,7 +22,7 @@ function App() {
     
     try {
       // Replace YOUR_GOOGLE_APPS_SCRIPT_URL with your actual URL from Google Apps Script
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbz6ytYsmQbS_rHPLbR9IdfQ6NELskaAnn-nSEktdE9xAunfIrYJZlrXESI-RY_kV5uG/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyEUTlumJhqLa1-2KbWMDy9gJwtc09IQKqFR2cZ2TfawMNAfq-RePY5IAfwaeR0DZ9g/exec';
       
       const formData = new FormData();
       formData.append('email', email);
