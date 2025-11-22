@@ -60,7 +60,7 @@ const handleEmailSubmit = async (e) => {
       {/* Navigation */}
       <nav className="nav">
         <div className="nav-container">
-          <div className="logo">Mokshapatra</div>
+        <img src="/logo.png" alt="Mokshapatra" className="logo-img" />
           <button className="login-btn">Login</button>
         </div>
       </nav>
