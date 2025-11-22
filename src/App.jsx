@@ -177,15 +177,24 @@ const handleEmailSubmit = async (e) => {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="solution">
-        <div className="container">
-          <h2 className="section-title">Meet Mokshapatra: Your Daily Spiritual Companion</h2>
-          
-          <div className="founder-story">
+<div className="founder-story">
+            <div className="founder-header">
+              <img 
+                src="/founder-photo.jpg" 
+                alt="Pallav - Founder of Mokshapatra" 
+                className="founder-photo"
+              />
+              <div className="founder-intro">
+                <h3 className="founder-name">Hi, I'm Pallav</h3>
+                <p className="founder-title">Founder & Certified Energy Healer</p>
+                <div className="founder-journey">
+                  <span className="journey-badge">5 Years of Healing Practice</span>
+                  <span className="journey-badge">Currently on Square 47/100</span>
+                </div>
+              </div>
+            </div>
+            
             <div className="founder-content">
-              <p className="greeting">Hi, I'm Pallav.</p>
-              
               <p>
                 Five years ago, I was exactly where you are — trying every spiritual practice, 
                 never sticking to anything, feeling alone on the healing journey.
@@ -201,39 +210,15 @@ const handleEmailSubmit = async (e) => {
                 Who remembers my patterns. Who sees my growth when I can't see it myself.
               </p>
               
-              <p>
-                I've been using Mokshapatra every day for the past year. 
-                I'm currently on square 47 of my own journey.
+              <p className="founder-highlight">
+                I've been using Mokshapatra every single day for the past year. It changed my life.
               </p>
               
               <p className="invitation">
-                Now I'm inviting you into what changed my life.
+                Now I'm inviting you into what transformed my healing journey.
               </p>
             </div>
           </div>
-
-          <div className="concept">
-            <h3 className="concept-title">The Concept</h3>
-            <p className="concept-text">
-              <strong>Mokshapatra combines a 2,000-year-old spiritual board game with modern AI 
-              to create your personalized 100-square journey to inner peace.</strong>
-            </p>
-            <p>
-              Each morning, roll sacred dice to discover today's practice — perfectly matched 
-              to your emotional state, current wounds, and available time.
-            </p>
-            <p>
-              No more decision fatigue. No more generic advice. Just 10 minutes with a companion 
-              who remembers your journey and adapts to your growth.
-            </p>
-          </div>
-
-          <div className="promise">
-            <h3 className="promise-title">No more guessing. No more quitting. No more going it alone.</h3>
-          </div>
-        </div>
-      </section>
-
       {/* How It Works Section */}
       <section id="how-it-works" className="how-it-works">
         <div className="container">
