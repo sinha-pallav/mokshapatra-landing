@@ -102,22 +102,20 @@ const handleEmailSubmit = async (e) => {
               </div>
             </div>
           </div>
-
+       
+          
           <div className="hero-visual">
             <div className="dice-container">
               <div className="dice-glow"></div>
-              <div className="dice-board">
-                <div className="board-pattern"></div>
-                <div className="dice">
-                  <Dices size={120} className="dice-icon" />
-                </div>
-                <div className="board-squares">
-                  <div className="square"></div>
-                  <div className="square"></div>
-                  <div className="square"></div>
-                  <div className="square active"></div>
-                </div>
-              </div>
+              <video 
+                className="hero-video"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              >
+                <source src="/hero-animation.mp4" type="video/mp4" />
+              </video>
               <p className="dice-caption">
                 <span className="caption-step">Roll</span>
                 <span className="caption-arrow">→</span>
