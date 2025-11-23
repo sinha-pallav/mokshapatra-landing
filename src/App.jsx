@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Check, Sparkles, Dices, MessageCircle, TrendingUp } from 'lucide-react';
+import { Sparkles, Dices, MessageCircle, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CookieConsent from './CookieConsent';
 import './App.css';
 
 function App() {
@@ -16,19 +18,17 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-const handleEmailSubmit = async (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      // Your Google Apps Script URL
       const scriptURL = 'https://script.google.com/macros/s/AKfycbyUveB3sNl4dTKKTAppFdKmXII4tE128z6x4pERnhgjjSgafHo1n3K8gVnwUl88KG8n/exec';
       
-      // Create URLSearchParams instead of FormData
       const formData = new URLSearchParams();
       formData.append('email', email);
+      formData.append('type', 'signup');
       
-      // Send to Google Apps Script
       await fetch(scriptURL, {
         method: 'POST',
         body: formData,
@@ -38,15 +38,11 @@ const handleEmailSubmit = async (e) => {
       });
       
       console.log('Email submitted:', email);
-      
-      // Show success message
       setSubmitStatus('success');
       setEmail('');
       
     } catch (error) {
       console.error('Error submitting email:', error);
-      // Even if there's an error, the email might have been saved
-      // because no-cors mode hides the actual response
       setSubmitStatus('success');
       setEmail('');
     } finally {
@@ -57,6 +53,8 @@ const handleEmailSubmit = async (e) => {
   
   return (
     <div className="landing-page">
+      <CookieConsent />
+      
       {/* Navigation */}
       <nav className="nav">
         <div className="nav-container">
@@ -66,7 +64,7 @@ const handleEmailSubmit = async (e) => {
         </div>
       </nav>
       
-{/* Hero Section */}
+      {/* Hero Section */}
       <section className="hero">
         {/* Video Background */}
         <div className="hero-video-background">
@@ -89,8 +87,7 @@ const handleEmailSubmit = async (e) => {
                 Stop Guessing What You Need to Heal Today
               </h1>
               <p className="hero-subtitle">
-                Ancient wisdom meets modern AI. Roll sacred dice each morning to receive 
-                the exact spiritual practice your healing needs right now.
+                2,000 years of wisdom. Backed by science. Personalized by AI.
               </p>
               
               <div className="cta-buttons">
@@ -238,48 +235,49 @@ const handleEmailSubmit = async (e) => {
           </div>
         </div>
       </section>
-<div className="founder-story">
-            <div className="founder-header">
-              <img 
-                src="/founder-photo.jpg" 
-                alt="Pallav - Founder of Mokshapatra" 
-                className="founder-photo"
-              />
-              <div className="founder-intro">
-                <h3 className="founder-name">Hi, I'm Pallav</h3>
-                <p className="founder-title">Founder & Certified Energy Healer</p>
-                <div className="founder-journey">
-                  <span className="journey-badge">5 Years of Healing Practice</span>
-                  <span className="journey-badge">Currently on Square 47/100</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="founder-content">
-              <p>
-                Five years ago, I was exactly where you are — trying every spiritual practice, 
-                never sticking to anything, feeling alone on the healing journey.
-              </p>
-              
-              <p>
-                As a certified energy healer, I knew the practices worked. 
-                But <strong>I</strong> wasn't working with the practices consistently.
-              </p>
-              
-              <p>
-                So I built what I needed to exist: A guide who meets me where I am each morning. 
-                Who remembers my patterns. Who sees my growth when I can't see it myself.
-              </p>
-              
-              <p className="founder-highlight">
-                I've been using Mokshapatra every single day for the past year. It changed my life.
-              </p>
-              
-              <p className="invitation">
-                Now I'm inviting you into the spiritual tools that transformed my healing journey.
-              </p>
+
+      <div className="founder-story">
+        <div className="founder-header">
+          <img 
+            src="/founder-photo.jpg" 
+            alt="Pallav - Founder of Mokshapatra" 
+            className="founder-photo"
+          />
+          <div className="founder-intro">
+            <h3 className="founder-name">Hi, I'm Pallav</h3>
+            <p className="founder-title">Founder & Certified Energy Healer</p>
+            <div className="founder-journey">
+              <span className="journey-badge">5 Years of Healing Practice</span>
+              <span className="journey-badge">Currently on Square 47/100</span>
             </div>
           </div>
+        </div>
+        
+        <div className="founder-content">
+          <p>
+            Five years ago, I was exactly where you are — trying every spiritual practice, 
+            never sticking to anything, feeling alone on the healing journey.
+          </p>
+          
+          <p>
+            As a certified energy healer, I knew the practices worked. 
+            But <strong>I</strong> wasn't working with the practices consistently.
+          </p>
+          
+          <p>
+            So I built what I needed to exist: A guide who meets me where I am each morning. 
+            Who remembers my patterns. Who sees my growth when I can't see it myself.
+          </p>
+          
+          <p className="founder-highlight">
+            I've been using Mokshapatra every single day for the past year. It changed my life.
+          </p>
+          
+          <p className="invitation">
+            Now I'm inviting you into the spiritual tools that transformed my healing journey.
+          </p>
+        </div>
+      </div>
       
       
       {/* How It Works Section */}
@@ -332,12 +330,23 @@ const handleEmailSubmit = async (e) => {
           </div>
 
           <div className="why-daily-callout">
-            <h4 className="why-daily-title">Why a new practice each day?</h4>
+            <h4 className="why-daily-title">Why does the dice choose for you?</h4>
             <p className="why-daily-text">
-              Healing isn't linear — some days you need grounding, others need release. 
-              The dice removes overthinking and decision fatigue. You show up, surrender to what finds you, 
-              and trust the process. <strong>Consistency isn't doing the same thing daily; 
-              it's showing up daily for what you actually need.</strong>
+              In the ancient game of Moksha-Patam, you never chose which square you landed on — the dice did. 
+              This wasn't randomness. It was <strong>surrender</strong>. The wisdom traditions understood: 
+              you don't control which lessons life brings you. You only control whether you show up.
+            </p>
+            <p className="why-daily-science">
+              And here's what 57 years of mathematical research using{' '}
+              <span className="tooltip">
+                Markov Chain
+                <span className="tooltip-text">
+                  A mathematical model that studies step-by-step progression through states. 
+                  Scientists used it to prove that on a well-designed board, reaching the final square is inevitable if you keep playing.
+                </span>
+              </span>
+              {' '}theory confirms: on a well-designed board, if you keep showing up, 
+              liberation isn't just possible — <strong>it's mathematically inevitable</strong>.
             </p>
           </div>
 
@@ -345,7 +354,8 @@ const handleEmailSubmit = async (e) => {
             <h3 className="progress-title">Watch Your Healing Unfold</h3>
             <p className="progress-text">
               Every practice brings you closer to Moksha (liberation). Your personalized board 
-              evolves with you, showing your growth, patterns, and transformation.
+              evolves with you — and mathematicians have proven that if you keep rolling, 
+              reaching the final square isn't just possible, it's inevitable.
             </p>
             <div className="board-progression">
               <div className="board-stage">
@@ -376,12 +386,6 @@ const handleEmailSubmit = async (e) => {
               Get <strong>FREE lifetime access</strong> to Mokshapatra — no credit card, no catch. 
               After 100 members, we start charging. Don't miss your spot.
             </p>
-            
-            <div className="founding-benefits">
-              <div className="benefit-item">✨ Free lifetime access (worth ₹2,999/year)</div>
-              <div className="benefit-item">🎯 Personalized 100-square board for YOUR healing</div>
-              <div className="benefit-item">💬 Direct access to founder for personal help</div>
-            </div>
 
             <form className="email-form" onSubmit={handleEmailSubmit}>
               {submitStatus === 'success' && (
@@ -422,6 +426,10 @@ const handleEmailSubmit = async (e) => {
               </div>
             </div>
 
+            <div className="science-trust-badge">
+              <p>Based on the 2,000-year-old game of Moksha-Patam • Validated by 57 years of probability research</p>
+            </div>
+
             <p className="urgency-text">
               <strong>⚡ 100 spots only.</strong> Once they're gone, founding member access closes forever.
             </p>
@@ -433,11 +441,16 @@ const handleEmailSubmit = async (e) => {
       {/* Footer */}
       <footer className="footer">
         <div className="container">
+          <p className="footer-disclaimer">
+            Mokshapatra is designed for personal growth and spiritual exploration. 
+            It is not a substitute for professional mental health treatment. 
+            If you are experiencing a mental health crisis, please seek help from a qualified professional.
+          </p>
           <p>&copy; 2025 Mokshapatra. All rights reserved.</p>
           <div className="footer-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
-            <a href="#contact">Contact</a>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
       </footer>
