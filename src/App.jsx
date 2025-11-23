@@ -358,57 +358,72 @@ const handleEmailSubmit = async (e) => {
       </section>
 
       {/* Email Capture Section */}
-      <section id="email-form" className="email-capture">
+      <section className="email-capture" id="email-form">
         <div className="container">
           <div className="email-content">
-            <h2 className="email-title">Begin Your Journey to Inner Peace</h2>
+            <h2 className="email-title">Join the First 100 Founding Members</h2>
             <p className="email-subtitle">
-              Join the waitlist to be among the first 100 founding members. 
-              Get early access and exclusive pricing.
+              Get <strong>FREE lifetime access</strong> to Mokshapatra — no credit card, no catch. 
+              After 100 members, we start charging. Don't miss your spot.
             </p>
             
-            <form onSubmit={handleEmailSubmit} className="email-form">
+            <div className="founding-benefits">
+              <div className="benefit-item">✨ Free lifetime access (worth ₹2,999/year)</div>
+              <div className="benefit-item">🎯 Personalized 100-square healing board</div>
+              <div className="benefit-item">💬 Direct access to founder for feedback</div>
+            </div>
+
+            <form className="email-form" onSubmit={handleEmailSubmit}>
+              {submitStatus === 'success' && (
+                <div className="success-message">
+                  🎉 You're in! Check your inbox for a welcome message.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="error-message">
+                  Something went wrong. Please try again.
+                </div>
+              )}
               <input
                 type="email"
+                className="email-input"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="email-input"
-                disabled={isSubmitting}
               />
-              <button 
-                type="submit" 
-                className="email-submit"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Joining...' : 'Join Waitlist'}
+              <button type="submit" className="email-submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Joining...' : 'Claim My Free Spot →'}
               </button>
             </form>
-
-            {submitStatus === 'success' && (
-              <div className="success-message">
-                ✨ Welcome! Check your email for next steps.
-              </div>
-            )}
             
-            {submitStatus === 'error' && (
-              <div className="error-message">
-                ❌ Oops! Something went wrong. Please try again.
-              </div>
-            )}
-
             <p className="email-note">
-              No spam. Just your invitation to transformation.
+              🔒 No spam, ever. Unsubscribe anytime. Not for you? We'll refund your time with a smile.
+            </p>
+
+            <div className="testimonials">
+              <div className="testimonial">
+                <p className="testimonial-text">"You have changed my life. I can't thank you enough."</p>
+                <p className="testimonial-author">— Priya</p>
+              </div>
+              <div className="testimonial">
+                <p className="testimonial-text">"I didn't realize how much I needed this until I experienced it. A big thank you!"</p>
+                <p className="testimonial-author">— Surajita</p>
+              </div>
+            </div>
+
+            <p className="urgency-text">
+              <strong>⚡ 100 spots only.</strong> Once they're gone, founding member access closes forever.
             </p>
           </div>
         </div>
       </section>
 
+      
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2024 Mokshapatra. All rights reserved.</p>
+          <p>&copy; 2025 Mokshapatra. All rights reserved.</p>
           <div className="footer-links">
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Service</a>
