@@ -370,7 +370,7 @@ const handleEmailSubmit = async (e) => {
             <div className="founding-benefits">
               <div className="benefit-item">✨ Free lifetime access (worth ₹2,999/year)</div>
               <div className="benefit-item">🎯 Personalized 100-square healing board</div>
-              <div className="benefit-item">💬 Direct access to founder for feedback</div>
+              <div className="benefit-item">💬 Direct access to founder for perosnal help</div>
             </div>
 
             <form className="email-form" onSubmit={handleEmailSubmit}>
@@ -398,7 +398,7 @@ const handleEmailSubmit = async (e) => {
             </form>
             
             <p className="email-note">
-              🔒 No spam, ever. Unsubscribe anytime. Not for you? We'll refund your time with a smile.
+              🔒 No spam, ever. Unsubscribe anytime.
             </p>
 
             <div className="testimonials">
