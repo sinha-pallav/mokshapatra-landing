@@ -1,0 +1,162 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient Background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D1B69;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4a2f8f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0f3d;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gold Gradient -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E8C547;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow Effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Soft Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative Elements -->
+  <!-- Top left subtle glow -->
+  <circle cx="150" cy="100" r="200" fill="#D4AF37" opacity="0.08"/>
+  <!-- Bottom right subtle glow -->
+  <circle cx="1100" cy="550" r="250" fill="#E6E6FA" opacity="0.05"/>
+  
+  <!-- Grid pattern (subtle) -->
+  <g opacity="0.03">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="500" x2="1200" y2="500" stroke="white" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="630" stroke="white" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- Dice Icon -->
+  <g transform="translate(100, 200)" filter="url(#shadow)">
+    <rect x="0" y="0" width="100" height="100" rx="16" fill="url(#goldGradient)"/>
+    <!-- Dice dots -->
+    <circle cx="25" cy="25" r="8" fill="#2D1B69"/>
+    <circle cx="75" cy="25" r="8" fill="#2D1B69"/>
+    <circle cx="50" cy="50" r="8" fill="#2D1B69"/>
+    <circle cx="25" cy="75" r="8" fill="#2D1B69"/>
+    <circle cx="75" cy="75" r="8" fill="#2D1B69"/>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="240" y="230" font-family="Georgia, serif" font-size="56" font-weight="bold" fill="white" filter="url(#shadow)">
+    Stop Guessing What You
+  </text>
+  <text x="240" y="300" font-family="Georgia, serif" font-size="56" font-weight="bold" fill="white" filter="url(#shadow)">
+    Need to Heal Today
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="240" y="370" font-family="Arial, sans-serif" font-size="26" fill="#D4AF37" filter="url(#glow)">
+    2,000 years of wisdom. Backed by science. Personalized by AI.
+  </text>
+  
+  <!-- Decorative Line -->
+  <rect x="240" y="400" width="120" height="4" rx="2" fill="url(#goldGradient)"/>
+  
+  <!-- Features Row -->
+  <g transform="translate(240, 450)">
+    <!-- Feature 1 -->
+    <g>
+      <circle cx="15" cy="15" r="12" fill="url(#goldGradient)" opacity="0.3"/>
+      <text x="35" y="20" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.9)">🎲 Daily Dice Roll</text>
+    </g>
+    
+    <!-- Feature 2 -->
+    <g transform="translate(220, 0)">
+      <circle cx="15" cy="15" r="12" fill="url(#goldGradient)" opacity="0.3"/>
+      <text x="35" y="20" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.9)">💬 AI Companion</text>
+    </g>
+    
+    <!-- Feature 3 -->
+    <g transform="translate(420, 0)">
+      <circle cx="15" cy="15" r="12" fill="url(#goldGradient)" opacity="0.3"/>
+      <text x="35" y="20" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.9)">📈 Track Progress</text>
+    </g>
+  </g>
+  
+  <!-- Bottom Badge -->
+  <g transform="translate(240, 520)">
+    <rect x="0" y="0" width="400" height="50" rx="25" fill="rgba(255,255,255,0.1)" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
+    <text x="200" y="32" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">
+      Join 100 Founding Members • Free Lifetime Access
+    </text>
+  </g>
+  
+  <!-- Brand Name -->
+  <text x="1080" y="580" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="url(#goldGradient)" text-anchor="end" filter="url(#glow)">
+    Mokshapatra
+  </text>
+  
+  <!-- Small Board Preview (Right side) -->
+  <g transform="translate(900, 150)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="200" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(212,175,55,0.3)" stroke-width="2"/>
+    
+    <!-- Mini squares grid -->
+    <g transform="translate(15, 15)">
+      <!-- Row 1 -->
+      <rect x="0" y="0" width="30" height="30" rx="4" fill="url(#goldGradient)"/>
+      <rect x="38" y="0" width="30" height="30" rx="4" fill="url(#goldGradient)"/>
+      <rect x="76" y="0" width="30" height="30" rx="4" fill="url(#goldGradient)"/>
+      <rect x="114" y="0" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="152" y="0" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      
+      <!-- Row 2 -->
+      <rect x="0" y="38" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="38" y="38" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="76" y="38" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="114" y="38" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="152" y="38" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      
+      <!-- Row 3 -->
+      <rect x="0" y="76" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="38" y="76" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="76" y="76" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="114" y="76" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="152" y="76" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      
+      <!-- Row 4 -->
+      <rect x="0" y="114" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="38" y="114" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="76" y="114" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="114" y="114" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="152" y="114" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      
+      <!-- Row 5 -->
+      <rect x="0" y="152" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="38" y="152" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="76" y="152" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="114" y="152" width="30" height="30" rx="4" fill="rgba(255,255,255,0.2)"/>
+      <rect x="152" y="152" width="30" height="30" rx="4" fill="url(#goldGradient)" opacity="0.5"/>
+    </g>
+    
+    <!-- 100 label -->
+    <text x="100" y="230" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.7)" text-anchor="middle">
+      100 Squares to Liberation
+    </text>
+  </g>
+</svg>
