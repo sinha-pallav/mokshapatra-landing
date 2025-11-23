@@ -640,6 +640,55 @@ p, span, div {
   margin-bottom: 4rem;
 }
 
+/* Why Daily Callout */
+.why-daily-callout {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(45, 27, 105, 0.04) 0%, rgba(212, 175, 55, 0.06) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  margin: 1rem 0 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.why-daily-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.why-daily-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.why-daily-text strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .why-daily-callout {
+    padding: 2rem 1.5rem;
+    margin: 1rem 1rem 2rem;
+  }
+  
+  .why-daily-title {
+    font-size: 1.25rem;
+  }
+  
+  .why-daily-text {
+    font-size: 1rem;
+  }
+}
+
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1087,9 +1136,17 @@ p, span, div {
 /* Responsive Design Improvements */
 @media (max-width: 768px) {
   .hero-container {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    flex-direction: column;
+    gap: 2rem;
     text-align: center;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .hero-title {
@@ -1102,6 +1159,10 @@ p, span, div {
 
   .cta-buttons {
     justify-content: center;
+  }
+
+  .trust-badge {
+    margin: 0 auto;
   }
 
   .dice-board {
