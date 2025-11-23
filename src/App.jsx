@@ -90,7 +90,7 @@ const handleEmailSubmit = async (e) => {
               </h1>
               <p className="hero-subtitle">
                 Ancient wisdom meets modern AI. Roll sacred dice each morning to receive 
-                the exact spiritual practice your soul needs right now.
+                the exact spiritual practice your healing needs right now.
               </p>
               
               <div className="cta-buttons">
@@ -276,7 +276,7 @@ const handleEmailSubmit = async (e) => {
               </p>
               
               <p className="invitation">
-                Now I'm inviting you into what transformed my healing journey.
+                Now I'm inviting you into the spiritual tools that transformed my healing journey.
               </p>
             </div>
           </div>
@@ -285,7 +285,7 @@ const handleEmailSubmit = async (e) => {
       {/* How It Works Section */}
       <section id="how-it-works" className="how-it-works">
         <div className="container">
-          <h2 className="section-title">Your Morning Journey in 3 Simple Steps</h2>
+          <h2 className="section-title">Your Morning Ritual in 3 Simple Steps</h2>
           
           <div className="steps">
             <div className="step">
@@ -299,6 +299,16 @@ const handleEmailSubmit = async (e) => {
               </p>
               <p className="step-note">
                 Based on your initial assessment, your board focuses on YOUR specific wounds and growth areas
+              </p>
+            </div>
+
+            <div className="why-daily-callout">
+              <h4 className="why-daily-title">Why a new practice each day?</h4>
+              <p className="why-daily-text">
+                Healing isn't linear — some days you need grounding, others need release. 
+                The dice removes overthinking and decision fatigue. You show up, surrender to what finds you, 
+                and trust the process. <strong>Consistency isn't doing the same thing daily; 
+                it's showing up daily for what you actually need.</strong>
               </p>
             </div>
 
@@ -332,7 +342,7 @@ const handleEmailSubmit = async (e) => {
           </div>
 
           <div className="progress-visual">
-            <h3 className="progress-title">Watch Your Healing Journey Unfold</h3>
+            <h3 className="progress-title">Watch Your Healing Unfold</h3>
             <p className="progress-text">
               Every practice brings you closer to Moksha (liberation). Your personalized board 
               evolves with you, showing your growth, patterns, and transformation.
@@ -369,8 +379,8 @@ const handleEmailSubmit = async (e) => {
             
             <div className="founding-benefits">
               <div className="benefit-item">✨ Free lifetime access (worth ₹2,999/year)</div>
-              <div className="benefit-item">🎯 Personalized 100-square healing board</div>
-              <div className="benefit-item">💬 Direct access to founder for perosnal help</div>
+              <div className="benefit-item">🎯 Personalized 100-square board for YOUR healing</div>
+              <div className="benefit-item">💬 Direct access to founder for personal help</div>
             </div>
 
             <form className="email-form" onSubmit={handleEmailSubmit}>
