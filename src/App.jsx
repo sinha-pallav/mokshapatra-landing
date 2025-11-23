@@ -302,16 +302,6 @@ const handleEmailSubmit = async (e) => {
               </p>
             </div>
 
-            <div className="why-daily-callout">
-              <h4 className="why-daily-title">Why a new practice each day?</h4>
-              <p className="why-daily-text">
-                Healing isn't linear — some days you need grounding, others need release. 
-                The dice removes overthinking and decision fatigue. You show up, surrender to what finds you, 
-                and trust the process. <strong>Consistency isn't doing the same thing daily; 
-                it's showing up daily for what you actually need.</strong>
-              </p>
-            </div>
-
             <div className="step">
               <div className="step-icon">
                 <MessageCircle size={48} />
@@ -339,6 +329,16 @@ const handleEmailSubmit = async (e) => {
                 Return in the evening for optional reflection (2 min) or roll again tomorrow
               </p>
             </div>
+          </div>
+
+          <div className="why-daily-callout">
+            <h4 className="why-daily-title">Why a new practice each day?</h4>
+            <p className="why-daily-text">
+              Healing isn't linear — some days you need grounding, others need release. 
+              The dice removes overthinking and decision fatigue. You show up, surrender to what finds you, 
+              and trust the process. <strong>Consistency isn't doing the same thing daily; 
+              it's showing up daily for what you actually need.</strong>
+            </p>
           </div>
 
           <div className="progress-visual">
