@@ -255,26 +255,53 @@ function App() {
         
         <div className="founder-content">
           <p>
-            Five years ago, I was exactly where you are — trying every spiritual practice, 
-            never sticking to anything, feeling alone on the healing journey.
+            Life was getting challenging, and I kept thinking: "There has to be a way to feel happier, 
+            more at peace." That's when my healing journey began.
           </p>
           
           <p>
-            As a certified energy healer, I knew the practices worked. 
-            But <strong>I</strong> wasn't working with the practices consistently.
+            Over five years, I learned and practiced hundreds of different healing techniques. 
+            An important realization hit me: <strong>for certain issues, certain practices work better</strong>. 
+            Spirituality became my daily habit.
           </p>
           
           <p>
-            So I built what I needed to exist: A guide who meets me where I am each morning. 
-            Who remembers my patterns. Who sees my growth when I can't see it myself.
+            But here's what I struggled with: Every morning, I'd freeze. With so many practices available, 
+            which one did I actually <em>need</em> today? It was impossible to fit them all into a single day, 
+            and I desperately needed something to guide my practice.
+          </p>
+          
+          <p>
+            That's when I discovered the ancient game of Mokshapatra. It became the bridge between 
+            my daily life and spiritual life. The game taught me something profound: I might think I need 
+            to work on my money issues, but what I actually need is gratitude. The board knows.
           </p>
           
           <p className="founder-highlight">
-            I've been using Mokshapatra every single day for the past year. It changed my life.
+            This board became my daily friend and guide. When my boss got angry, I'd roll the dice 
+            and do whatever practice came up — because life is too big to understand with the mind alone.
+          </p>
+          
+          <p>
+            The transformation didn't happen on Day 1. It's a butterfly effect. But as I progressed, 
+            my mind became peaceful and clear. Suddenly I had more energy. I started asserting boundaries 
+            that always felt impossible — especially with certain people.
+          </p>
+          
+          <p>
+            The journey has unfolded in ways that make me feel like I want to <strong>experience</strong> life, 
+            not just live it.
+          </p>
+          
+          <p>
+            One specific shift: I started with the intention of resolving my anxiety. What the practices 
+            uncovered was that my mind was racing all the time. It slowed down — in a good way. 
+            And this understanding arose from somewhere deep: <em>We can't control outcomes. 
+            We can only control our actions. Focus on giving your best, then let the universe decide.</em>
           </p>
           
           <p className="invitation">
-            Now I'm inviting you into the spiritual tools that transformed my healing journey.
+            That became my motto for living. Now I'm inviting you into the practice that transformed mine.
           </p>
         </div>
       </div>
@@ -332,7 +359,7 @@ function App() {
           <div className="why-daily-callout">
             <h4 className="why-daily-title">Why does the dice choose for you?</h4>
             <p className="why-daily-text">
-              In the ancient game of Moksha-Patam, you never chose which square you landed on — the dice did. 
+              In the ancient game of Mokshapatra, you never chose which square you landed on — the dice did. 
               This wasn't randomness. It was <strong>surrender</strong>. The wisdom traditions understood: 
               you don't control which lessons life brings you. You only control whether you show up.
             </p>
@@ -427,7 +454,7 @@ function App() {
             </div>
 
             <div className="science-trust-badge">
-              <p>Based on the 2,000-year-old game of Moksha-Patam • Validated by 57 years of probability research</p>
+              <p>Based on the 2,000-year-old game of Mokshapatra • Validated by 57 years of probability research</p>
             </div>
 
             <p className="urgency-text">
