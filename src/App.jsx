@@ -417,7 +417,23 @@ function App() {
             <form className="email-form" onSubmit={handleEmailSubmit}>
               {submitStatus === 'success' && (
                 <div className="success-message">
-                  🎉 You're in! Check your inbox for a welcome message.
+                  <div className="success-title">🎉 Welcome, Founding Member!</div>
+                  <p className="success-main">You're officially one of the first 100.</p>
+                  
+                  <div className="success-steps">
+                    <p><strong>What happens next:</strong></p>
+                    <ul>
+                      <li>Check your email within 24 hours for your exclusive access link</li>
+                      <li><strong>Important:</strong> Check your spam/promotions folder and mark us as safe</li>
+                      <li>Your lifetime free access is secured</li>
+                    </ul>
+                  </div>
+                  
+                  <p className="success-footer">
+                    Can't find the email? Contact us at <a href="mailto:pallavsinha8@gmail.com">pallavsinha8@gmail.com</a>
+                  </p>
+                  
+                  <p className="success-closing">Your journey begins soon. 🙏</p>
                 </div>
               )}
               {submitStatus === 'error' && (
