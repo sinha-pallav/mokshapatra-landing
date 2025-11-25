@@ -1059,7 +1059,7 @@ p, span, div {
 }
 
 .success-message {
-  padding: 1.25rem 2rem;
+  padding: 2rem 2.5rem;
   background: rgba(16, 185, 129, 0.15);
   border: 2px solid var(--success);
   border-radius: 14px;
@@ -1068,6 +1068,77 @@ p, span, div {
   backdrop-filter: blur(10px);
   font-size: 1.0625rem;
   width: 100%;
+  text-align: left;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.success-main {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.success-steps {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.success-steps p {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.success-steps ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.success-steps li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.success-steps li strong {
+  color: white;
+  font-weight: 600;
+}
+
+.success-footer {
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.success-footer a {
+  color: var(--secondary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.success-footer a:hover {
+  color: var(--secondary-light);
+}
+
+.success-closing {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+  font-style: italic;
 }
 
 .error-message {
