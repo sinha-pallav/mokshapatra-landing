@@ -47,7 +47,7 @@ function App() {
       setEmail('');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(''), 5000);
+      // Success message stays visible - no auto-hide
     }
   };
   
