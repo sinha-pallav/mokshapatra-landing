@@ -6,7 +6,7 @@ function TermsOfService() {
   return (
     <div className="legal-page">
       <nav className="legal-nav">
-        <Link to="/" className="back-link">← Back to Home</Link>
+        <Link to="/" className="back-link">â Back to Home</Link>
       </nav>
       
       <div className="legal-content">
@@ -101,8 +101,8 @@ function TermsOfService() {
         <section>
           <h2>7. Intellectual Property</h2>
           <p>
-            All content, features, and functionality of Mokshapatra—including but not limited to 
-            text, graphics, logos, icons, images, audio, software, and the overall design—are 
+            All content, features, and functionality of Mokshapatraâincluding but not limited to 
+            text, graphics, logos, icons, images, audio, software, and the overall designâare 
             owned by Mokshapatra and protected by intellectual property laws.
           </p>
           <p>
@@ -144,7 +144,7 @@ function TermsOfService() {
           <h2>10. Refund Policy</h2>
           <p>
             Refund requests will be handled on a case-by-case basis. Please contact us at 
-            pallavsinha8@gmail.com within 14 days of purchase if you are not satisfied with our Service.
+            pallav@mokshapatra.com within 14 days of purchase if you are not satisfied with our Service.
           </p>
         </section>
 
@@ -213,7 +213,7 @@ function TermsOfService() {
           <h2>17. Contact Information</h2>
           <p>For questions about these Terms, please contact us:</p>
           <ul>
-            <li><strong>Email:</strong> pallavsinha8@gmail.com</li>
+            <li><strong>Email:</strong> pallav@mokshapatra.com</li>
             <li><strong>Contact Form:</strong> <Link to="/contact">mokshapatra.com/contact</Link></li>
           </ul>
         </section>
