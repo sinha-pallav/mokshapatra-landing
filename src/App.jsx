@@ -1,501 +1,157 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Dices, MessageCircle, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import CookieConsent from './CookieConsent';
-import './App.css';
+
+const GOLD = '#C9920A';
+const DEEP_INDIGO = '#1A0533';
+const DARK_BG2 = '#0E0120';
+const OFF_WHITE = '#F0EBE3';
 
 function App() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
-  const [diceRoll, setDiceRoll] = useState(1);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Animated dice rolling effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setDiceRoll(Math.floor(Math.random() * 6) + 1);
-    }, 2000);
-    return () => clearInterval(interval);
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+    const style = document.createElement('style');
+    style.textContent = '* { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; } body { background: #1A0533; } .btn-gold { background: #C9920A; color: #1A0533; border: none; padding: 18px 48px; font-size: 15px; font-weight: 700; letter-spacing: 0.08em; cursor: pointer; font-family: Lato, sans-serif; text-transform: uppercase; transition: opacity 0.2s; } .btn-gold:hover { opacity: 0.88; } .btn-outline { background: transparent; border: 1px solid #C9920A; color: #C9920A; padding: 10px 24px; cursor: pointer; font-family: Lato, sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; } .btn-outline:hover { background: #C9920A; color: #1A0533; } .chapter-label { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C9920A; margin-bottom: 24px; display: block; } .divider { width: 48px; height: 2px; background: #C9920A; opacity: 0.5; margin: 32px 0; } @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr !important; } .grid-3 { grid-template-columns: 1fr !important; } .hero-title { font-size: 42px !important; } .hero-sub { font-size: 26px !important; } section { padding: 80px 24px !important; } nav { padding: 16px 24px !important; } }';
+    document.head.appendChild(style);
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     try {
       const scriptURL = 'https://script.google.com/macros/s/AKfycbyUveB3sNl4dTKKTAppFdKmXII4tE128z6x4pERnhgjjSgafHo1n3K8gVnwUl88KG8n/exec';
-      
       const formData = new URLSearchParams();
       formData.append('email', email);
       formData.append('type', 'signup');
-      
-      await fetch(scriptURL, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        }
-      });
-      
-      console.log('Email submitted:', email);
+      await fetch(scriptURL, { method: 'POST', body: formData, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
       setSubmitStatus('success');
       setEmail('');
-      
     } catch (error) {
-      console.error('Error submitting email:', error);
       setSubmitStatus('success');
       setEmail('');
     } finally {
       setIsSubmitting(false);
-      // Success message stays visible - no auto-hide
     }
   };
-  
+
+  const scrollToSignup = () => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' });
+  const ff = { fontFamily: "'Cinzel', serif" };
+
   return (
-    <div className="landing-page">
+    <div style={{ fontFamily: "'Lato', sans-serif", background: DEEP_INDIGO, color: OFF_WHITE, overflowX: 'hidden' }}>
       <CookieConsent />
-      
-      {/* Navigation */}
-      <nav className="nav">
-        <div className="nav-container">
-          <div className="logo">
-            <img src="/logo.jpg" alt="Mokshapatra" className="logo-image" />
-          </div>
-        </div>
+      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, padding: '20px 56px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: scrolled ? 'rgba(14,1,32,0.96)' : 'transparent', backdropFilter: scrolled ? 'blur(16px)' : 'none', borderBottom: scrolled ? '1px solid rgba(201,146,10,0.15)' : 'none', transition: 'all 0.35s ease' }}>
+        <img src="/logo.jpg" alt="Mokshapatra" style={{ height: 42 }} />
+        <button className="btn-outline" onClick={scrollToSignup}>Begin Practice</button>
       </nav>
-      
-      {/* Hero Section */}
-      <section className="hero">
-        {/* Video Background */}
-        <div className="hero-video-background">
-          <video 
-            className="hero-bg-video"
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-          >
-            <source src="/hero-animation.mp4" type="video/mp4" />
-          </video>
-          <div className="hero-overlay"></div>
+      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '140px 48px 100px', background: 'radial-gradient(ellipse 80% 60% at 50% -10%, #2D1B5E 0%, #1A0533 65%)' }}>
+        <span className="chapter-label" style={{ marginBottom: 56 }}>✦  2,000 years of wisdom · Now personalized for you  ✦</span>
+        <h1 className="hero-title" style={{ ...ff, fontSize: 'clamp(44px, 7.5vw, 100px)', fontWeight: 700, lineHeight: 1.08, color: '#FFFFFF', marginBottom: 20, maxWidth: 960 }}>Something waits for you<br />every morning.</h1>
+        <h2 className="hero-sub" style={{ ...ff, fontSize: 'clamp(26px, 4vw, 52px)', fontWeight: 400, color: GOLD, marginBottom: 44 }}>It's been patient.</h2>
+        <p style={{ fontSize: 18, lineHeight: 1.8, color: OFF_WHITE, opacity: 0.8, maxWidth: 520, marginBottom: 56, fontWeight: 300 }}>Mokshapatra gives you exactly what to practice today.<br />One roll. No deciding. The ancient game guides.</p>
+        <button className="btn-gold" onClick={scrollToSignup}>Begin Your Practice →</button>
+        <p style={{ marginTop: 80, fontSize: 11, letterSpacing: '0.25em', opacity: 0.35, textTransform: 'uppercase' }}>scroll to discover ↓</p>
+      </section>
+      <section className="grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', maxWidth: 1200, margin: '0 auto', padding: '120px 56px', alignItems: 'center' }}>
+        <div>
+          <span className="chapter-label">Chapter I — The Seeking</span>
+          <h2 style={{ ...ff, fontSize: 'clamp(30px, 3.5vw, 50px)', fontWeight: 700, lineHeight: 1.2, color: '#FFFFFF', marginBottom: 32 }}>You follow the right people.<br />You know what you need.<br />You just never start.</h2>
+          <div className="divider"></div>
+          <p style={{ fontSize: 17, lineHeight: 1.85, opacity: 0.78, marginBottom: 24 }}>You save the videos. You follow the teachers. You go to the retreat, come back changed — and two weeks later you are back to the same morning scroll.</p>
+          <p style={{ fontSize: 17, lineHeight: 1.85, opacity: 0.78 }}>It is not willpower. It is not discipline. It is the absence of something that guides you — every morning — to exactly the right practice for exactly where you are.</p>
         </div>
-
-        <div className="hero-container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1 className="hero-title">
-                Stop Guessing What You Need to Heal Today
-              </h1>
-              <p className="hero-subtitle">
-                2,000 years of wisdom. Backed by science. Personalized by AI.
-              </p>
-              
-              <div className="cta-buttons">
-                <button 
-                  className="cta-primary" 
-                  onClick={() => document.getElementById('email-form').scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Start Your Journey
-                </button>
-                <button 
-                  className="cta-secondary" 
-                  onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Watch How It Works
-                </button>
-              </div>
-
-              <div className="trust-badge">
-                <Sparkles size={20} className="trust-icon" />
-                <div className="trust-text">
-                  <strong>Created by Pallav</strong>
-                  <span>Certified Energy Healer • Currently on Square 47/100</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-visual">
-            <div className="journey-card">
-              <div className="journey-header">
-                <div className="journey-icon">🎲</div>
-                <h3 className="journey-title">Your 100-Day Journey</h3>
-              </div>
-              
-              <div className="journey-steps">
-                <div className="journey-step">
-                  <div className="step-number">1</div>
-                  <div className="step-content">
-                    <div className="step-label">ROLL</div>
-                    <p className="step-desc">Sacred dice each morning</p>
-                  </div>
-                </div>
-                
-                <div className="step-divider">
-                  <div className="divider-line"></div>
-                  <div className="divider-arrow">↓</div>
-                </div>
-                
-                <div className="journey-step">
-                  <div className="step-number">2</div>
-                  <div className="step-content">
-                    <div className="step-label">DISCOVER</div>
-                    <p className="step-desc">Your personalized practice</p>
-                  </div>
-                </div>
-                
-                <div className="step-divider">
-                  <div className="divider-line"></div>
-                  <div className="divider-arrow">↓</div>
-                </div>
-                
-                <div className="journey-step">
-                  <div className="step-number">3</div>
-                  <div className="step-content">
-                    <div className="step-label">TRANSFORM</div>
-                    <p className="step-desc">Track your evolution</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="journey-progress">
-                <div className="progress-squares">
-                  <div className="square active"></div>
-                  <div className="square active"></div>
-                  <div className="square active"></div>
-                  <div className="square"></div>
-                  <div className="square"></div>
-                </div>
-                <p className="progress-text">100 squares to inner peace</p>
-              </div>
-            </div>
-          </div>
+        <div style={{ textAlign: 'right', overflow: 'hidden', userSelect: 'none' }}>
+          <p style={{ ...ff, fontSize: 'clamp(72px, 11vw, 160px)', fontWeight: 900, lineHeight: 0.88, color: 'transparent', WebkitTextStroke: '1.5px rgba(201,146,10,0.3)' }}>SEEK<br />ING</p>
         </div>
-      </section> 
-
-      
-      {/* Problem Section */}
-      <section className="problem">
-        <div className="container">
-          <h2 className="section-title">Does This Sound Familiar?</h2>
-          <p className="section-subtitle">
-            You're not alone in these struggles. These are the most common challenges our community faces.
-          </p>
-          
-          <div className="pain-points">
-            <div className="pain-card">
-              <div className="pain-icon">🧘</div>
-              <h3 className="pain-title">Inconsistent Practice</h3>
-              <p className="pain-text">You try to meditate but can't maintain consistency, even when you know it helps.</p>
-            </div>
-
-            <div className="pain-card">
-              <div className="pain-icon">📚</div>
-              <h3 className="pain-title">Decision Paralysis</h3>
-              <p className="pain-text">Spiritual books pile up unread while you scroll social media, unsure where to start.</p>
-            </div>
-
-            <div className="pain-card">
-              <div className="pain-icon">🤔</div>
-              <h3 className="pain-title">Daily Confusion</h3>
-              <p className="pain-text">You feel lost each morning — which practice do you actually need right now?</p>
-            </div>
-
-            <div className="pain-card">
-              <div className="pain-icon">💭</div>
-              <h3 className="pain-title">Healing Alone</h3>
-              <p className="pain-text">You're on this journey by yourself and wish someone truly understood what you're going through.</p>
-            </div>
-
-            <div className="pain-card">
-              <div className="pain-icon">📊</div>
-              <h3 className="pain-title">No Visible Progress</h3>
-              <p className="pain-text">You can't tell if you're making progress or just spinning your wheels.</p>
-            </div>
-
-            <div className="pain-card">
-              <div className="pain-icon">🎯</div>
-              <h3 className="pain-title">Generic Advice</h3>
-              <p className="pain-text">One-size-fits-all guidance doesn't fit your specific wounds and patterns.</p>
-            </div>
-          </div>
-
-          <div className="empathy-statement">
-            <p className="empathy-text">
-              You're not broken. You don't lack discipline.
-            </p>
-            <p className="empathy-highlight">
-              You just need a practice that adapts to <strong>you</strong> — not the other way around.
-            </p>
-          </div>
-
-          <div className="transition-hook">
-            What if your spiritual practice <strong>found you</strong> each morning, 
-            perfectly tailored to where you are right now?
+      </section>
+      <section style={{ background: DARK_BG2, padding: '120px 56px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 780, margin: '0 auto' }}>
+          <span className="chapter-label">Chapter II — The Ancient Game</span>
+          <h2 style={{ ...ff, fontSize: 'clamp(30px, 4vw, 54px)', fontWeight: 700, lineHeight: 1.15, color: '#FFFFFF', marginBottom: 48 }}>2,000 years ago,<br />ancient India already solved this.</h2>
+          <p style={{ fontSize: 18, lineHeight: 1.95, opacity: 0.8, marginBottom: 28 }}>The game of Gyan Chaupar — what you know as Snakes and Ladders — was never about luck. It was a guide. Each square held a specific teaching, a specific practice, chosen by the fall of the dice rather than the wandering of the mind.</p>
+          <p style={{ fontSize: 18, lineHeight: 1.95, opacity: 0.8, marginBottom: 48 }}>Your ancestors did not wake up asking what to practice today. The game decided. They surrendered to it. And in that surrender, they built something you have been trying to build for years.</p>
+          <div style={{ borderTop: '1px solid rgba(201,146,10,0.25)', paddingTop: 48 }}>
+            <p style={{ ...ff, fontSize: 22, color: GOLD, fontStyle: 'italic', lineHeight: 1.6 }}>"The dice does not choose randomly.<br />It chooses what you need."</p>
           </div>
         </div>
       </section>
-
-      <div className="founder-story">
-        <div className="founder-header">
-          <img 
-            src="/founder-photo.jpg" 
-            alt="Pallav - Founder of Mokshapatra" 
-            className="founder-photo"
-          />
-          <div className="founder-intro">
-            <h3 className="founder-name">Hi, I'm Pallav</h3>
-            <p className="founder-title">Founder & Certified Energy Healer</p>
-            <div className="founder-journey">
-              <span className="journey-badge">5 Years of Healing Practice</span>
-              <span className="journey-badge">Currently on Square 47/100</span>
-            </div>
-          </div>
+      <section style={{ padding: '120px 56px', maxWidth: 1200, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 80 }}>
+          <span className="chapter-label">Chapter III — How It Works</span>
+          <h2 style={{ ...ff, fontSize: 'clamp(30px, 3.5vw, 52px)', fontWeight: 700, color: '#FFFFFF', marginBottom: 16 }}>Three things happen when you roll.</h2>
+          <p style={{ fontSize: 17, opacity: 0.65, maxWidth: 480, margin: '0 auto' }}>No algorithm. No notifications. Just you, the board, and 2,000 years of guidance.</p>
         </div>
-        
-        <div className="founder-content">
-          <p>
-            Life was getting challenging, and I kept thinking: "There has to be a way to feel happier, 
-            more at peace." That's when my healing journey began.
-          </p>
-          
-          <p>
-            Over five years, I learned and practiced hundreds of different healing techniques. 
-            An important realization hit me: <strong>for certain issues, certain practices work better</strong>. 
-            Spirituality became my daily habit.
-          </p>
-          
-          <p>
-            But here's what I struggled with: Every morning, I'd freeze. With so many practices available, 
-            which one did I actually <em>need</em> today? It was impossible to fit them all into a single day, 
-            and I desperately needed something to guide my practice.
-          </p>
-          
-          <p>
-            That's when I discovered the ancient game of Mokshapatra. It became the bridge between 
-            my daily life and spiritual life. The game taught me something profound: I might think I need 
-            to work on my money issues, but what I actually need is gratitude. The board knows.
-          </p>
-          
-          <p className="founder-highlight">
-            This board became my daily friend and guide. When my boss got angry, I'd roll the dice 
-            and do whatever practice came up — because life is too big to understand with the mind alone.
-          </p>
-          
-          <p>
-            The transformation didn't happen on Day 1. It's a butterfly effect. But as I progressed, 
-            my mind became peaceful and clear. Suddenly I had more energy. I started asserting boundaries 
-            that always felt impossible — especially with certain people.
-          </p>
-          
-          <p>
-            The journey has unfolded in ways that make me feel like I want to <strong>experience</strong> life, 
-            not just live it.
-          </p>
-          
-          <p>
-            One specific shift: I started with the intention of resolving my anxiety. What the practices 
-            uncovered was that my mind was racing all the time. It slowed down — in a good way. 
-            And this understanding arose from somewhere deep: <em>We can't control outcomes. 
-            We can only control our actions. Focus on giving your best, then let the universe decide.</em>
-          </p>
-          
-          <p className="invitation">
-            That became my motto for living. Now I'm inviting you into the practice that transformed mine.
-          </p>
+        <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px' }}>
+          {[
+            { num: '01', title: 'Roll', sub: 'The dice lands. The board speaks.', body: 'Each morning you roll. The square you land on holds a specific practice mapped to your 100-day journey — aligned to exactly where you are on your path.' },
+            { num: '02', title: 'Reflect', sub: 'The AI listens.', body: 'A brief Socratic conversation — not therapy, not journaling prompts, but the kind of question that shows you something you already half-knew. 5 to 7 minutes.' },
+            { num: '03', title: 'Practice', sub: "Today's practice. Chosen for you.", body: 'One specific practice — meditation, breathwork, mantra, or movement — calibrated to your mood, your square, and your history. No more choosing. Just doing.' },
+          ].map((step, i) => (
+            <div key={i} style={{ background: 'rgba(255,255,255,0.025)', padding: '48px 40px', borderTop: `3px solid ${GOLD}` }}>
+              <p style={{ ...ff, fontSize: 60, fontWeight: 900, color: 'rgba(201,146,10,0.12)', lineHeight: 1, marginBottom: 20 }}>{step.num}</p>
+              <h3 style={{ ...ff, fontSize: 26, fontWeight: 700, color: '#FFFFFF', marginBottom: 8 }}>{step.title}</h3>
+              <p style={{ fontSize: 12, color: GOLD, letterSpacing: '0.06em', marginBottom: 20, textTransform: 'uppercase' }}>{step.sub}</p>
+              <p style={{ fontSize: 16, lineHeight: 1.85, opacity: 0.72 }}>{step.body}</p>
+            </div>
+          ))}
         </div>
-      </div>
-      
-      
-      {/* How It Works Section */}
-      <section id="how-it-works" className="how-it-works">
-        <div className="container">
-          <h2 className="section-title">Your Morning Ritual in 3 Simple Steps</h2>
-          
-          <div className="steps">
-            <div className="step">
-              <div className="step-icon">
-                <Dices size={48} />
-              </div>
-              <h3 className="step-title">1. Roll the Dice</h3>
-              <p className="step-description">
-                Each morning, roll sacred dice to discover which of your 100 personalized squares 
-                calls to you today. What you need finds you when you're ready.
-              </p>
-              <p className="step-note">
-                Based on your initial assessment, your board focuses on YOUR specific wounds and growth areas
-              </p>
-            </div>
-
-            <div className="step">
-              <div className="step-icon">
-                <MessageCircle size={48} />
-              </div>
-              <h3 className="step-title">2. Have a Conversation</h3>
-              <p className="step-description">
-                Share what's alive for you right now. Our AI companion asks Socratic questions 
-                that help you understand your patterns and uncover your own wisdom. Takes 5-7 minutes.
-              </p>
-              <p className="step-note">
-                The AI remembers your past conversations and builds on your insights over time
-              </p>
-            </div>
-
-            <div className="step">
-              <div className="step-icon">
-                <TrendingUp size={48} />
-              </div>
-              <h3 className="step-title">3. Practice & Transform</h3>
-              <p className="step-description">
-                Get a practice tailored to your wound, energy level, and available time. 
-                From 5-minute breathwork to 20-minute somatic exercises. You choose the depth.
-              </p>
-              <p className="step-note">
-                Return in the evening for optional reflection (2 min) or roll again tomorrow
-              </p>
-            </div>
+      </section>
+      <section style={{ background: DARK_BG2, padding: '120px 56px' }}>
+        <div className="grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', maxWidth: 1200, margin: '0 auto', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ ...ff, fontSize: 'clamp(120px, 18vw, 260px)', fontWeight: 900, lineHeight: 1, color: 'transparent', WebkitTextStroke: '2px rgba(201,146,10,0.35)', userSelect: 'none' }}>100</p>
+            <p style={{ fontSize: 11, letterSpacing: '0.3em', color: GOLD, marginTop: 12, textTransform: 'uppercase' }}>Squares · 100 Days · One Journey</p>
           </div>
-
-          <div className="why-daily-callout">
-            <h4 className="why-daily-title">Why does the dice choose for you?</h4>
-            <p className="why-daily-text">
-              In the ancient game of Mokshapatra, you never chose which square you landed on — the dice did. 
-              This wasn't randomness. It was <strong>surrender</strong>. The wisdom traditions understood: 
-              you don't control which lessons life brings you. You only control whether you show up.
-            </p>
-            <p className="why-daily-science">
-              And here's what 57 years of mathematical research using{' '}
-              <span className="tooltip">
-                Markov Chain
-                <span className="tooltip-text">
-                  A mathematical model that studies step-by-step progression through states. 
-                  Scientists used it to prove that on a well-designed board, reaching the final square is inevitable if you keep playing.
-                </span>
-              </span>
-              {' '}theory confirms: on a well-designed board, if you keep showing up, 
-              liberation isn't just possible — <strong>it's mathematically inevitable</strong>.
-            </p>
-          </div>
-
-          <div className="progress-visual">
-            <h3 className="progress-title">Watch Your Healing Unfold</h3>
-            <p className="progress-text">
-              Every practice brings you closer to Moksha (liberation). Your personalized board 
-              evolves with you — and mathematicians have proven that if you keep rolling, 
-              reaching the final square isn't just possible, it's inevitable.
-            </p>
-            <div className="board-progression">
-              <div className="board-stage">
-                <div className="mini-board board-day-1"></div>
-                <p>Day 1</p>
+          <div>
+            <span className="chapter-label">Chapter IV — The Journey</span>
+            <h2 style={{ ...ff, fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 700, lineHeight: 1.2, color: '#FFFFFF', marginBottom: 40 }}>A 100-square path through<br />the four stages of practice.</h2>
+            {[
+              { label: 'Yama · Squares 1–25', desc: 'Foundation. The clearing of what does not serve.' },
+              { label: 'Niyama · Squares 26–50', desc: 'Cultivation. Building the habits that last.' },
+              { label: 'Dharana · Squares 51–75', desc: 'Concentration. The deepening of attention.' },
+              { label: 'Dhyana · Squares 76–100', desc: 'Absorption. Where practice becomes being.' },
+            ].map((phase, i) => (
+              <div key={i} style={{ borderLeft: '2px solid rgba(201,146,10,0.3)', paddingLeft: 20, marginBottom: 28 }}>
+                <p style={{ ...ff, fontSize: 14, color: GOLD, marginBottom: 4 }}>{phase.label}</p>
+                <p style={{ fontSize: 15, opacity: 0.72, lineHeight: 1.6 }}>{phase.desc}</p>
               </div>
-              <div className="board-arrow">→</div>
-              <div className="board-stage">
-                <div className="mini-board board-day-30"></div>
-                <p>Day 30</p>
-              </div>
-              <div className="board-arrow">→</div>
-              <div className="board-stage">
-                <div className="mini-board board-day-100"></div>
-                <p>Day 100</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* Email Capture Section */}
-      <section className="email-capture" id="email-form">
-        <div className="container">
-          <div className="email-content">
-            <h2 className="email-title">Join the First 100 Founding Members</h2>
-            <p className="email-subtitle">
-              Get <strong>FREE lifetime access</strong> to Mokshapatra — no credit card, no catch. 
-              After 100 members, we start charging. Don't miss your spot.
-            </p>
-
-            <form className="email-form" onSubmit={handleEmailSubmit}>
-              {submitStatus === 'success' && (
-                <div className="success-message">
-                  <div className="success-title">🎉 Welcome, Founding Member!</div>
-                  <p className="success-main">You're officially one of the first 100.</p>
-                  
-                  <div className="success-steps">
-                    <p><strong>What happens next:</strong></p>
-                    <ul>
-                      <li>Check your email within 24 hours for your exclusive access link</li>
-                      <li><strong>Important:</strong> Check your spam/promotions folder and mark us as safe</li>
-                      <li>Your lifetime free access is secured</li>
-                    </ul>
-                  </div>
-                  
-                  <p className="success-footer">
-                    Can't find the email? Contact us at <a href="mailto:pallavsinha8@gmail.com">pallavsinha8@gmail.com</a>
-                  </p>
-                  
-                  <p className="success-closing">Your journey begins soon. 🙏</p>
-                </div>
-              )}
-              {submitStatus === 'error' && (
-                <div className="error-message">
-                  Something went wrong. Please try again.
-                </div>
-              )}
-              <input
-                type="email"
-                className="email-input"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <button type="submit" className="email-submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Joining...' : 'Claim My Free Spot →'}
-              </button>
+      <section id="signup" style={{ padding: '120px 56px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 640, margin: '0 auto' }}>
+          <span className="chapter-label" style={{ marginBottom: 32 }}>⚡ Founding Member Access</span>
+          <h2 style={{ ...ff, fontSize: 'clamp(34px, 5vw, 62px)', fontWeight: 700, lineHeight: 1.1, color: '#FFFFFF', marginBottom: 24 }}>The practice has been waiting.<br />Begin tomorrow morning.</h2>
+          <p style={{ fontSize: 17, lineHeight: 1.85, opacity: 0.75, marginBottom: 52, fontWeight: 300 }}>Join as a founding member. Be among the first 100 to complete a full journey. Early access, founding pricing, and a personal board generated for you before your first roll.</p>
+          {submitStatus === 'success' ? (
+            <div style={{ padding: '36px 48px', border: `1px solid ${GOLD}`, background: 'rgba(201,146,10,0.08)' }}>
+              <p style={{ ...ff, fontSize: 22, color: GOLD, marginBottom: 10 }}>Your practice awaits.</p>
+              <p style={{ opacity: 0.7 }}>We will be in touch with your founding member access.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleEmailSubmit} style={{ display: 'flex', maxWidth: 480, margin: '0 auto' }}>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required style={{ flex: 1, padding: '18px 20px', background: 'rgba(255,255,255,0.06)', border: `1px solid rgba(201,146,10,0.4)`, borderRight: 'none', color: OFF_WHITE, fontSize: 16, outline: 'none', fontFamily: "'Lato', sans-serif" }} />
+              <button type="submit" disabled={isSubmitting} className="btn-gold" style={{ padding: '18px 28px', fontSize: 13, whiteSpace: 'nowrap' }}>{isSubmitting ? '...' : 'Begin →'}</button>
             </form>
-            
-            <p className="email-note">
-              🔒 No spam, ever. Unsubscribe anytime.
-            </p>
-
-            <div className="testimonials">
-              <div className="testimonial">
-                <p className="testimonial-text">"You have changed my life. I can't thank you enough."</p>
-                <p className="testimonial-author">— Priya</p>
-              </div>
-              <div className="testimonial">
-                <p className="testimonial-text">"I didn't realize how much I needed this until I experienced it. A big thank you!"</p>
-                <p className="testimonial-author">— Surajita</p>
-              </div>
-            </div>
-
-            <div className="science-trust-badge">
-              <p>Based on the 2,000-year-old game of Mokshapatra • Validated by 57 years of probability research</p>
-            </div>
-
-            <p className="urgency-text">
-              <strong>⚡ 100 spots only.</strong> Once they're gone, founding member access closes forever.
-            </p>
-          </div>
+          )}
+          <p style={{ marginTop: 20, fontSize: 12, opacity: 0.4 }}>No spam. No daily emails. Just your practice.</p>
         </div>
       </section>
-
-      
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <p className="footer-disclaimer">
-            Mokshapatra is designed for personal growth and spiritual exploration. 
-            It is not a substitute for professional mental health treatment. 
-            If you are experiencing a mental health crisis, please seek help from a qualified professional.
-          </p>
-          <p>&copy; 2025 Mokshapatra. All rights reserved.</p>
-          <div className="footer-links">
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/contact">Contact</Link>
-          </div>
-        </div>
+      <footer style={{ borderTop: '1px solid rgba(201,146,10,0.12)', padding: '56px', textAlign: 'center' }}>
+        <img src="/logo.jpg" alt="Mokshapatra" style={{ height: 36, marginBottom: 24, opacity: 0.6 }} />
+        <p style={{ fontSize: 13, opacity: 0.4, letterSpacing: '0.04em', marginBottom: 16 }}>Based on the 2,000-year-old game of Gyan Chaupar · Built for modern seekers</p>
+        <p style={{ fontSize: 12, opacity: 0.28 }}>© 2025 Mokshapatra · <a href="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy</a> · <a href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Terms</a></p>
       </footer>
     </div>
   );
