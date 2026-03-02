@@ -6,7 +6,7 @@ function PrivacyPolicy() {
   return (
     <div className="legal-page">
       <nav className="legal-nav">
-        <Link to="/" className="back-link">← Back to Home</Link>
+        <Link to="/" className="back-link">â Back to Home</Link>
       </nav>
       
       <div className="legal-content">
@@ -99,7 +99,7 @@ function PrivacyPolicy() {
             <li>Data portability (receive your data in a structured format)</li>
             <li>Withdraw consent at any time</li>
           </ul>
-          <p>To exercise these rights, please contact us at pallavsinha8@gmail.com.</p>
+          <p>To exercise these rights, please contact us at pallav@mokshapatra.com.</p>
         </section>
 
         <section>
@@ -154,7 +154,7 @@ function PrivacyPolicy() {
           <h2>13. Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us:</p>
           <ul>
-            <li><strong>Email:</strong> pallavsinha8@gmail.com</li>
+            <li><strong>Email:</strong> pallav@mokshapatra.com</li>
             <li><strong>Contact Form:</strong> <Link to="/contact">mokshapatra.com/contact</Link></li>
           </ul>
         </section>
